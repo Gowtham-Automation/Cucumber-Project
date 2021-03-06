@@ -1,2 +1,0 @@
-# Cucumber-Project
-Cucumber Walkthrough
