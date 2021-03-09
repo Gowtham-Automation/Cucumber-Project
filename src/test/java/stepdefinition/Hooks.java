@@ -24,10 +24,11 @@ public class Hooks extends ScenarioContext {
     public void initializeTest() {
         Properties prop = new Properties();
         try {
-            InputStream input = new FileInputStream("D:\\IntellIjProjects\\Cucumber-Project\\src\\main\\java\\configuration\\Config.properties");
+            //InputStream input = new FileInputStream("configuration/Config.properties");
+            InputStream input = new FileInputStream(System.getProperty("user.dir")+"/src/main/java/configuration/Config.properties");
             prop.load(input);
             if (prop.getProperty("browser").equalsIgnoreCase("Chrome")) {
-                System.setProperty("webdriver.chrome.driver", "D:\\IntellIjProjects\\Cucumber-Project\\src\\test\\resources\\drivers\\chromedriver.exe");
+                System.setProperty("webdriver.chrome.driver", System.getProperty("user.dir")+"/src/test/resources/drivers/chromedriver.exe");
                 scenarioContext.driver = new ChromeDriver();
             } else if (prop.getProperty("browser").equalsIgnoreCase("Firefox"))
                 System.out.println("Firefox not initialized");
